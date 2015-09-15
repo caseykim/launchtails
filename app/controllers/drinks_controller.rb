@@ -19,6 +19,6 @@ class DrinksController < ApplicationController
 
   protected
   def drink_params
-    params.require(:drink).permit(:title, :description)
+    params.require(:drink).permit(:title, :description, :featured, :category_id, :alcohol_level)
   end
 end
