@@ -12,7 +12,7 @@
         <%- @drinks.each do |drink| -%>
           <tr>
             <td><%= drink.title %></td>
-            <td><%= drink.description.truncate(30) %></td>
+            <td><%= truncate(drink.description, length: 30) %></td>
           </tr>
         <%- end -%>
       </table>
