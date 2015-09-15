@@ -12,13 +12,13 @@ feature 'view featured drinks', %Q{
   scenario 'visitor views featured drinks' do
     drink = FactoryGirl.create(:drink, :featured)
 
-    visit '/featured-drinks'
+    visit featured_drinks_path
     expect(page).to have_content(drink.title)
   end
 
   scenario 'visitor does not see nonfeatured drinks' do
     drink = FactoryGirl.create(:drink)
-    visit '/featured-drinks'
+    visit featured_drinks_path
     expect(page).to_not have_content(drink.title)
   end
 
@@ -26,7 +26,7 @@ feature 'view featured drinks', %Q{
     featured_drink = FactoryGirl.create(:drink, :featured)
     nonfeatured_drink = FactoryGirl.create(:drink)
 
-    visit '/'
+    visit root_path
     expect(page).to have_content(featured_drink.title)
     expect(page).to_not have_content(nonfeatured_drink.title)
   end

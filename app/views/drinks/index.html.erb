@@ -15,9 +15,7 @@
             <td><%= drink.title %></td>
             <td><%= truncate(drink.description, length: 30) %></td>
             <td>
-              <%= link_to 'Delete',
-                '/drinks/' + drink.to_param,
-                method: :delete %>
+              <%= link_to 'Delete', drink_path(drink), method: :delete %>
             </td>
           </tr>
         <%- end -%>

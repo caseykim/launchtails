@@ -12,7 +12,7 @@ feature 'visitor deletes a drink', %Q{
   scenario 'delete a drink' do
     drink = FactoryGirl.create(:drink)
 
-    visit '/drinks'
+    visit drinks_path
     click_link 'Delete'
 
     expect(page).to have_content('Drink deleted.')

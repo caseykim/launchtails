@@ -14,7 +14,7 @@ feature 'visitor creates drink', %Q{
 
   scenario 'add a valid drink' do
     drink_title = 'Pumpkin Martini'
-    visit '/drinks/new'
+    visit new_drink_path
 
     fill_in 'Title', with: drink_title
     fill_in 'Description', with: 'Likely the best martini you will ever have. A Thanksgiving must.'
@@ -26,7 +26,7 @@ feature 'visitor creates drink', %Q{
   end
 
   scenario 'attempt to add an invalid drink' do
-    visit '/drinks/new'
+    visit new_drink_path
 
     click_button 'Add Drink'
 
