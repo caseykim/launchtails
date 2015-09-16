@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   root 'homes#index'
+  devise_for :admins
   devise_for :users
+  resources :drinks, except: [:edit, :update]
+
+  resources :categories, only: [:show] do
+    resources :drinks, only: [:index]
+  end
+
+  namespace :admin do
+    resources :drinks, only: [:edit, :update]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

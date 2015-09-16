@@ -1,0 +1,10 @@
+<%- if @drink.errors.present? -%>
+  <div class="large-12 alert-box alert" data-alert>
+    <ul>
+      <%- @drink.errors.full_messages.each do |error| -%>
+        <li><%= error %></li>
+      <%- end -%>
+    </ul>
+  </div>
+<%- end -%>
+<%= render partial: "form", locals: {drink: @drink} %>

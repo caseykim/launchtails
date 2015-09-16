@@ -28,4 +28,3 @@ feature 'visitor views categorized drinks', %Q{
     expect(page).to_not have_content(drink.title)
   end
 end
-

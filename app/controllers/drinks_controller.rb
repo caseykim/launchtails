@@ -7,14 +7,19 @@ class DrinksController < ApplicationController
     @drink = Drink.new(drink_params)
     if @drink.save
       flash[:notice] = 'Drink added.'
-      redirect_to '/drinks'
+      redirect_to drinks_path
     else
       render :new
     end
   end
 
   def index
-    @drinks = Drink.all
+    if params[:category_id].present?
+      @category = Category.find(params[:category_id])
+      @drinks = @category.drinks
+    else
+      @drinks = Drink.all
+    end
   end
 
   protected
